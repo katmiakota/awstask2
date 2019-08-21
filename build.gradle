@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'task1test'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.228')
+    implementation 'com.amazonaws:aws-java-sdk-testLambda.awsClients.s3'
+    compile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.0'
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.119'
+    compile group: 'org.json', name: 'json', version: '20190722'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.0'
+}
+
+test {
+    useJUnitPlatform()
+}
